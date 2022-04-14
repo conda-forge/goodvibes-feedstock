@@ -8,9 +8,11 @@ rm -rf "$SRC_DIR/goodvibes/share/"
 
 "${PYTHON}" -m pip install . -vv
 
-mkdir "$SP_DIR/goodvibes/share"
+# workaround bug where SP_DIR in python 3.10 gets truncated to lib/python3.1/...
+SITE_PACKAGES=$(${PYTHON} -c 'import site; print(site.getsitepackages()[0])')
+mkdir "$SITE_PACKAGES/goodvibes/share"
 if [[ $target_platform == linux* ]]; then
-  "$CC" -shared -o "$SP_DIR/goodvibes/share/symmetry_linux.so" -fPIC symmetry.c
+  "$CC" -shared -o "$SITE_PACKAGES/goodvibes/share/symmetry_linux.so" -fPIC symmetry.c
 else
-  "$CC" -dynamiclib symmetry.c -o "$SP_DIR/goodvibes/share/symmetry_mac.dylib" -current_version 1.0 -compatibility_version 1.0
+  "$CC" -dynamiclib symmetry.c -o "$SITE_PACKAGES/goodvibes/share/symmetry_mac.dylib" -current_version 1.0 -compatibility_version 1.0
 fi
