@@ -40,10 +40,10 @@ test:
 about:
   home: https://github.com/patonlab/goodvibes
   license: MIT
-  license_file: 
+  license_file:
     - LICENSE.txt # GoodVibes license
     - symmetry.LICENSE.txt # Symmetry license
-  summary: 'A python program to compute corrections to thermochemical data from frequency calculations'
+  summary: A python program to compute corrections to thermochemical data from frequency calculations
 
 extra:
   recipe-maintainers:
