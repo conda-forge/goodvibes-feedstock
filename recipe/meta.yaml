@@ -6,20 +6,22 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b3cb7d4679b12440833f6add0e283190db53e31e5aea95f0a8e3c734b73da57e
 
 build:
-  number: 2
+  number: 3
   entry_points:
     - goodvibes = goodvibes.GoodVibes:main
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - pip
     - python
+    - setuptools
   run:
     - cclib
     - numpy
