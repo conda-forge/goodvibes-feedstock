@@ -1,5 +1,5 @@
 {% set name = "goodvibes" %}
-{% set version = "3.2" %}
+{% set version = "4.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b3cb7d4679b12440833f6add0e283190db53e31e5aea95f0a8e3c734b73da57e
+  sha256: 9b2a7b5201d9e5343ae351ed47e3c7efcf745e959e75ff5cc0a1d587b728da77
 
 build:
-  number: 3
+  number: 0
   entry_points:
     - goodvibes = goodvibes.GoodVibes:main
 
